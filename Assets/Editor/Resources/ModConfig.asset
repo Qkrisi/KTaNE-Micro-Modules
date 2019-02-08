@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 615501dbe4f3fe94fbf4b564abb10237, type: 3}
+  m_Name: ModConfig
+  m_EditorClassIdentifier: 
+  id: KritMicroModules
+  title: Micro-Modules
+  description: 'Does this bomb look smaller to you? Wait... Why is it mounted on a
+    bigger bomb?
+
+
+    Note: For most resolutions, the text on the module becones too small to read.
+    That''s why the Camera Zoom mod is recommended for this module.
+
+
+    Module ID: KritMicroModules
+
+
+    Manual (PDF):
+
+    Manual (HTML):'
+  version: V1.0
+  outputFolder: build
+  previewImage: {fileID: 2800000, guid: c38fde9a53247f347a5454ca0ed71162, type: 3}
