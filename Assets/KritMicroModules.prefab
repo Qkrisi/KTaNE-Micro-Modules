@@ -20476,7 +20476,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940860325761968}
-  m_Text: <color=#4EC97FFF>List</color><<color=#2721D3FF>string</color>> Colors;
+  m_Text: <color=#4EC97FFF>List</color><<color=#4EC97FFF>Color</color>> Colors;
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 0.75
@@ -26292,6 +26292,7 @@ MonoBehaviour:
   - {fileID: 102093247423824916}
   - {fileID: 102653303900884750}
   - {fileID: 102156823257239090}
+  Siren: {fileID: 0}
   ResetCooldownText: {fileID: 102608746363166262}
 --- !u!114 &114908026954162936
 MonoBehaviour:
