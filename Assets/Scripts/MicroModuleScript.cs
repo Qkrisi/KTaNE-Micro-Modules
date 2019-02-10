@@ -2252,6 +2252,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseReceiveCode()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch();
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2307,6 +2308,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey0Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2314,6 +2316,12 @@ public class MicroModuleScript : MonoBehaviour
             MorseCodeTxtMsh.text = MorseCodeTxtMsh.text.Substring(1);
             MorseCodeTxtMsh.text += "0";
             MorseCharacters++;
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2330,6 +2338,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey1Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2340,6 +2349,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "1";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2355,6 +2370,7 @@ public class MicroModuleScript : MonoBehaviour
     }
     protected bool MorseKey2Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2365,6 +2381,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "2";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2381,6 +2403,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey3Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2391,6 +2414,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "3";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2407,6 +2436,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey4Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2417,6 +2447,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "4";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2433,6 +2469,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey5Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2443,6 +2480,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "5";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2459,6 +2502,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey6Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2469,6 +2513,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "6";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2485,6 +2535,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey7Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2495,6 +2546,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "7";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2511,6 +2568,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey8Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2521,6 +2579,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "8";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2537,6 +2601,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKey9Press()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         if (!MorseReceivingCode && MorseCharacters != 4)
         {
@@ -2547,6 +2612,12 @@ public class MicroModuleScript : MonoBehaviour
                 MorseCodeTxtMsh.text += "9";
                 MorseCharacters++;
             }
+        }
+        else if (MorseReceivingCode)
+        {
+            GetComponent<KMBombModule>().HandleStrike();
+            StrikeCount++;
+            CurrentStrikesText.text = StrikeCount.ToString();
         }
         else if (!MorseReceivingCode && MorseCharacters == 4)
         {
@@ -2563,6 +2634,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseSubmitKey()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(1.5f);
         if (!MorseReceivingCode)
         {
@@ -2614,18 +2686,21 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool MorseKeyDeactivated()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         return false;
     }
 
     protected bool MorseSendButtonDeactivated()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(1.5f);
         return false;
     }
 
     protected bool MorseReceiveButtonDeactivated()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch();
         return false;
     }
@@ -2900,6 +2975,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool PasswordChar1Next()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         ActionNumber1++;
         if (ActionNumber1 > 10)
@@ -2981,6 +3057,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool PasswordChar2Next()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         ActionNumber2++;
         if (ActionNumber2 > 10)
@@ -3062,6 +3139,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool PasswordChar3Next()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         GetComponent<KMSelectable>().AddInteractionPunch(0.25f);
         ActionNumber3++;
         if (ActionNumber3 > 10)
@@ -3144,6 +3222,7 @@ public class MicroModuleScript : MonoBehaviour
     protected bool PasswordSubmision()
     {
         GetComponent<KMSelectable>().AddInteractionPunch();
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         Debug.LogFormat("[Micro-Modules #{0}] [Math Code] Submitted: {1}, {2} and {3}. Desired: {4}, {5} and {6}", ModuleID, EnteredPasswordDigit1, EnteredPasswordDigit2, EnteredPasswordDigit3, SolutionPasswordDigit1, SolutionPasswordDigit2, SolutionPasswordDigit3);
         if (EnteredPasswordDigit1 == SolutionPasswordDigit1)
         {
@@ -3568,6 +3647,7 @@ public class MicroModuleScript : MonoBehaviour
 
     protected bool CuttingWire1()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.WireSnip, transform);
         GetComponent<KMSelectable>().AddInteractionPunch();
         Debug.LogFormat("[Micro-Modules #{0}] [Script Wires] Wire 1 was cut", ModuleID);
         if (!WireWasCut1)
@@ -3595,6 +3675,7 @@ public class MicroModuleScript : MonoBehaviour
     }
     protected bool CuttingWire2()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.WireSnip, transform);
         GetComponent<KMSelectable>().AddInteractionPunch();
         Debug.LogFormat("[Micro-Modules #{0}] [Script Wires] Wire 2 was cut", ModuleID);
         if (!WireWasCut2)
@@ -3622,6 +3703,7 @@ public class MicroModuleScript : MonoBehaviour
     }
     protected bool CuttingWire3()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.WireSnip, transform);
         GetComponent<KMSelectable>().AddInteractionPunch();
         Debug.LogFormat("[Micro-Modules #{0}] [Script Wires] Wire 3 was cut", ModuleID);
         if (!WireWasCut3)
@@ -3649,6 +3731,7 @@ public class MicroModuleScript : MonoBehaviour
     }
     protected bool CuttingWire4()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.WireSnip, transform);
         GetComponent<KMSelectable>().AddInteractionPunch();
         Debug.LogFormat("[Micro-Modules #{0}] [Script Wires] Wire 4 was cut", ModuleID);
         if (!WireWasCut4)
@@ -3676,6 +3759,7 @@ public class MicroModuleScript : MonoBehaviour
     }
     protected bool CuttingWire5()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.WireSnip, transform);
         GetComponent<KMSelectable>().AddInteractionPunch();
         Debug.LogFormat("[Micro-Modules #{0}] [Script Wires] Wire 5 was cut", ModuleID);
         if (!WireWasCut5)
@@ -3703,6 +3787,7 @@ public class MicroModuleScript : MonoBehaviour
     }
     protected bool CuttingWire6()
     {
+        GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.WireSnip, transform);
         GetComponent<KMSelectable>().AddInteractionPunch();
         Debug.LogFormat("[Micro-Modules #{0}] [Script Wires] Wire 6 was cut", ModuleID);
         if (!WireWasCut6)
@@ -3733,6 +3818,7 @@ public class MicroModuleScript : MonoBehaviour
     {
         if (Enumerable.SequenceEqual(DesiredCuts, CurrentCuts))
         {
+            GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.CorrectChime, transform);
             Debug.LogFormat("[Micro-Modules #{0}] [Script Wires] Every wire was cut. Module passed.", ModuleID);
             WireStatusLight.SetPass();
             CurrentSolveOrder.Add("Wires");
