@@ -5,7 +5,7 @@ using KModkit;
 using System.Linq;
 using System;
 using Random = UnityEngine.Random;
-
+using System.Text.RegularExpressions;
 
 public class MicroModuleScript : MonoBehaviour
 {
@@ -75,7 +75,7 @@ public class MicroModuleScript : MonoBehaviour
     };
     int KeyArrowGenerator;
     string DiagonalSide;
-    int BaseNr;
+    public int BaseNr;
     int Offset;
     public string[] ArrowKind;
     public Renderer[] ArrowOrder;
@@ -101,7 +101,7 @@ public class MicroModuleScript : MonoBehaviour
     public TextMesh ExpressionText;
     List<string> PasswordPossibleLetters = new List<string>
     {
-        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+        "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
     };
     List<string> PasswordPossibleNumbers = new List<string>
     {
@@ -156,8 +156,9 @@ public class MicroModuleScript : MonoBehaviour
     bool Unicorn;
 
     //Reset button related
-    int ResetTimer, ResetTimeCounter;
+    int ResetTimer, ResetTimeCounter = 20;
     public TextMesh ResetCooldownText;
+
 
     void Awake()
     {
@@ -760,19 +761,19 @@ public class MicroModuleScript : MonoBehaviour
     protected bool BombSolveButton()
     {
         GetComponent<KMSelectable>().AddInteractionPunch();
-        if (Enumerable.SequenceEqual(DesiredCuts, CurrentCuts))
+        if (ModulesLeft == 0)
         {
-            AlarmLight1.gameObject.SetActive(false);
-            AlarmLight2.gameObject.SetActive(false);
-            AlarmPointLight.color = Color.green;
-            AlarmGameObj.SetActive(false);
-            SolveAlarmLight.SetActive(true);
-            AlarmSolved.SetActive(true);
-            GetComponent<KMBombModule>().HandlePass();
-        }
-        else if (DesiredSolveOrder[1] == "Unicorn")
-        {
-            if (ModulesLeft > 0)
+            if (Enumerable.SequenceEqual(DesiredCuts, CurrentCuts))
+            {
+                AlarmLight1.gameObject.SetActive(false);
+                AlarmLight2.gameObject.SetActive(false);
+                AlarmPointLight.color = Color.green;
+                AlarmGameObj.SetActive(false);
+                SolveAlarmLight.SetActive(true);
+                AlarmSolved.SetActive(true);
+                GetComponent<KMBombModule>().HandlePass();
+            }
+            else if (DesiredSolveOrder[1] == "Unicorn")
             {
                 AlarmLight1.gameObject.SetActive(false);
                 AlarmLight2.gameObject.SetActive(false);
@@ -783,17 +784,18 @@ public class MicroModuleScript : MonoBehaviour
                 AlarmSolved.SetActive(true);
                 GetComponent<KMBombModule>().HandlePass();
             }
-        }
-        else if (ModulesLeft > 0)
-        {
-
+            else
+            {
+                GetComponent<KMBombModule>().HandleStrike();
+                StrikeCount++;
+                CurrentStrikesText.text = StrikeCount.ToString();
+            }
         }
         else
         {
-            GetComponent<KMBombModule>().HandleStrike();
-            StrikeCount++;
-            CurrentStrikesText.text = StrikeCount.ToString();
+
         }
+        
         return false;
     }
 
@@ -921,7 +923,7 @@ public class MicroModuleScript : MonoBehaviour
     IEnumerator ConstantReset()
     {
         ResetTimer = ResetTimeCounter;
-        Debug.LogFormat("Time left until reset is {0}", ResetTimeCounter);
+        Debug.LogFormat("[Micro-Modules #{0}] Time left until reset is {1}", ModuleID, ResetTimeCounter);
         while (true)
         {
             ResetCooldownText.text = ResetTimer.ToString();
@@ -1038,8 +1040,9 @@ public class MicroModuleScript : MonoBehaviour
 
     void KeypadOffsetCalculation()
     {
+        string SerialNrNumbers = SerialNr.Last().ToString();
         //Offset first:
-        BaseNr = BombInfo.GetSerialNumberNumbers().First();
+        BaseNr = int.Parse(SerialNrNumbers);
         int KeypadCalcModuleID = Convert.ToInt32(KeypadsMicroModuleIDTxt.text);
         BaseNr = BaseNr + KeypadCalcModuleID;
         if (BombInfo.GetOnIndicators().Count() > 0)
@@ -2222,7 +2225,7 @@ public class MicroModuleScript : MonoBehaviour
         }
         else
         {
-            MorseIntCode = MorseIntCode / 50;
+            MorseIntCode = MorseIntCode * 5;
         }
         if (MorseIntCode % 10 == 1 || MorseIntCode % 10 == 3 || MorseIntCode % 10 == 5 || MorseIntCode % 10 == 7 || MorseIntCode % 10 == 9)
         {
@@ -2711,7 +2714,7 @@ public class MicroModuleScript : MonoBehaviour
     {
         foreach (char Character in PasswordLetters)
         {
-            PasswordLetterGen = Random.Range(0, 9);
+            PasswordLetterGen = Random.Range(0, 25);
             PasswordLetters += PasswordPossibleLetters[PasswordLetterGen];
             PasswordLetters = PasswordLetters.Substring(1);
         }
@@ -2951,7 +2954,7 @@ public class MicroModuleScript : MonoBehaviour
 
     IEnumerator PasswordSubtraction()
     {
-        for (int a = 0; a < 10; a++)
+        while (true)
         {
             if (ExpressionSolution < 100)
             {

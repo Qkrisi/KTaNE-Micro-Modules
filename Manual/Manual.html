@@ -96,7 +96,7 @@
 					<ul>
 						<li>If the module "Code Morse" has an ID of 1 and there is any module which has "Morse" in its name, then the Code Morse module will have to be solved first.</li>
 						<li>Otherwise, if the module "Directional Keypads" has an ID of 2 and there is more than 1 module which has "Button" in its name, then the Directional Keypads module will have to be solved first.</li>
-						<li>Otherwise, if the module "The Math Code" has an ID of 3 and both Micro-Indicators "MINI" or "BOMB" are present, then the Math Code module will have to be solved first.</li>
+						<li>Otherwise, if the module "The Math Code" has an ID of 3 and either Micro-Indicator "MINI" or "BOMB" is present, then the Math Code module will have to be solved first.</li>
 						<li>Otherwise, if the module "Script Wires" has an ID of 4 and the Micro-Battery's color is a primary color, then the Script Wires module will have to be solved first.</li>
 						<li>Otherwise, if none of the rules apply and there's a lit BOMB on the Micro-bomb OR a lit BOB on the regular bomb, then the order doesn't matter.</li>
 						<li>Otherwise, if that also doesn't apply, solve the modules in regular order, starting at 1.</li>
@@ -347,7 +347,7 @@
 							<li>If the Micro-Bomb's battery has a primary colored label, then add 5 to A.</li>
 							<li>Multiply B by 3 if one of the starting letters is a vowel. Else subtract 3 from B.</li>
 							<li>Add 1 to C for every battery on the regular bomb.</li>
-							<li>Lastly, multiply every number by the amount of <em>lit</em> indicators (If none, then don't multiply).</li>
+							<li>Lastly, multiply every number by the amount of <em>lit</em> indicators on the regular bomb. (If none, then don't multiply)</li>
 							<li>Now calculate the expression. <em>Do not round the number, but remove the decimals.</em></li>
 							<li>If this number is lower than 100, add 100. If the number is higher than 999, subtract 100.</li>
 						</ul>

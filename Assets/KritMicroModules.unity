@@ -276,7 +276,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1001 &1206876349
+--- !u!1001 &1350295553
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -314,11 +314,6 @@ Prefab:
     - target: {fileID: 4365313217404582, guid: 47dc2c7d3b2df854c8f4001dfe76c502, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 102572596813014380, guid: 47dc2c7d3b2df854c8f4001dfe76c502,
-        type: 2}
-      propertyPath: m_Text
-      value: <color=#4EC97FFF>List</color><<color=#4EC97FFF>Color</color>> Colors;
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 47dc2c7d3b2df854c8f4001dfe76c502, type: 2}
