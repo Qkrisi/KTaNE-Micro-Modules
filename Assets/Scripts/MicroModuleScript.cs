@@ -2025,7 +2025,7 @@ public class MicroModuleScript : MonoBehaviour
                     case 3:
                         {
                             MorseDigitCode += 3;
-                            MorseCode += "/----- ";
+                            MorseCode += "/...-- ";
                             break;
                         }
                     case 4:
@@ -2303,7 +2303,7 @@ public class MicroModuleScript : MonoBehaviour
             else if (unit == '/')
             {
                 yield return new WaitForSecondsRealtime(0.5f);
-                MorseReceivingCode = false;
+                MorseReceivingCode = true;
             }
             yield return new WaitForSecondsRealtime(0.5f);
         }
