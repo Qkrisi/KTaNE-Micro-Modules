@@ -24,9 +24,9 @@ MonoBehaviour:
     Module ID: KritMicroModules
 
 
-    Manual (PDF):
+    Manual (PDF): https://ktane.timwi.de/PDF/Micro-Modules.pdf
 
-    Manual (HTML):'
+    Manual (HTML): https://ktane.timwi.de/HTML/Micro-Modules.html'
   version: V1.0
   outputFolder: build
   previewImage: {fileID: 2800000, guid: c38fde9a53247f347a5454ca0ed71162, type: 3}

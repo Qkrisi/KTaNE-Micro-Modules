@@ -118,9 +118,10 @@ public class MicroModuleScript : MonoBehaviour
     int ActionNumber1 = 10, ActionNumber2 = 10, ActionNumber3 = 10;
     public int CharacterA, CharacterB, CharacterC;
     string Expression;
-    public int ExpressionSolution;
     public int EnteredPasswordDigit1, EnteredPasswordDigit2, EnteredPasswordDigit3;
     public int SolutionPasswordDigit1, SolutionPasswordDigit2, SolutionPasswordDigit3;
+
+    public int ExpressionSolution;
 
     //Wires related
     public TextMesh ScriptLine1, ScriptLine3, ScriptLine5;
@@ -1826,27 +1827,220 @@ public class MicroModuleScript : MonoBehaviour
             }
         }
 
-        if (ArrowOrder[3] == null)
+
+        if (ArrowOrder[3] == KeypadTLArrow)
         {
-            if (ArrowOrder[2] == null)
+            if (!Key1Fake)
             {
-                if (ArrowOrder[1] == null)
+                if (KeypadTLArrow.material.mainTexture == ArrowRight)
                 {
-                    DesiredKey = ArrowOrder[0].name;
+                    Offset = 2;
+                    ArrowOrder[4] = KeypadTRArrow;
+                }
+                else if (KeypadTLArrow.material.mainTexture == ArrowReverse)
+                {
+                    Offset = 3;
+                    ArrowOrder[4] = KeypadBLArrow;
+                }
+                else if (KeypadTLArrow.material.mainTexture == ArrowClockwise)
+                {
+                    Offset = 2;
+                    ArrowOrder[4] = KeypadTRArrow;
+                }
+                else if (KeypadTLArrow.material.mainTexture == ArrowSwap)
+                {
+                    Offset = 4;
+                    ArrowOrder[4] = KeypadBRArrow;
+                }
+                else if (KeypadTLArrow.material.mainTexture == ArrowDiagonalTL)
+                {
+                    Offset = 1;
+                    ArrowOrder[4] = KeypadTLArrow;
+                }
+                else if (KeypadTLArrow.material.mainTexture == ArrowDiagonalTR)
+                {
+                    Offset = 2;
+                    ArrowOrder[4] = KeypadTRArrow;
+                }
+                else if (KeypadTLArrow.material.mainTexture == ArrowDiagonalBL)
+                {
+                    Offset = 3;
+                    ArrowOrder[4] = KeypadBLArrow;
+                }
+                else if (KeypadTLArrow.material.mainTexture == ArrowDiagonalBR)
+                {
+                    Offset = 4;
+                    ArrowOrder[4] = KeypadBRArrow;
+                }
+            }
+        }
+        else if (ArrowOrder[3] == KeypadTRArrow)
+        {
+            if (!Key2Fake)
+            {
+                if (KeypadTRArrow.material.mainTexture == ArrowLeft)
+                {
+                    Offset = 1;
+                    ArrowOrder[4] = KeypadTLArrow;
+                }
+                else if (KeypadTRArrow.material.mainTexture == ArrowReverse)
+                {
+                    Offset = 4;
+                    ArrowOrder[4] = KeypadBRArrow;
+                }
+                else if (KeypadTRArrow.material.mainTexture == ArrowClockwise)
+                {
+                    Offset = 4;
+                    ArrowOrder[4] = KeypadBRArrow;
+                }
+                else if (KeypadTRArrow.material.mainTexture == ArrowSwap)
+                {
+                    Offset = 3;
+                    ArrowOrder[4] = KeypadBLArrow;
+                }
+                else if (KeypadTRArrow.material.mainTexture == ArrowDiagonalTL)
+                {
+                    Offset = 1;
+                    ArrowOrder[4] = KeypadTLArrow;
+                }
+                else if (KeypadTRArrow.material.mainTexture == ArrowDiagonalTR)
+                {
+                    Offset = 2;
+                    ArrowOrder[4] = KeypadTRArrow;
+                }
+                else if (KeypadTRArrow.material.mainTexture == ArrowDiagonalBL)
+                {
+                    Offset = 3;
+                    ArrowOrder[4] = KeypadBLArrow;
+                }
+                else if (KeypadTRArrow.material.mainTexture == ArrowDiagonalBR)
+                {
+                    Offset = 4;
+                    ArrowOrder[4] = KeypadBRArrow;
+                }
+            }
+        }
+        else if (ArrowOrder[3] == KeypadBLArrow)
+        {
+            if (!Key3Fake)
+            {
+                if (KeypadBLArrow.material.mainTexture == ArrowRight)
+                {
+                    Offset = 4;
+                    ArrowOrder[4] = KeypadBRArrow;
+                }
+                else if (KeypadBLArrow.material.mainTexture == ArrowReverse)
+                {
+                    Offset = 1;
+                    ArrowOrder[4] = KeypadTLArrow;
+                }
+                else if (KeypadBLArrow.material.mainTexture == ArrowClockwise)
+                {
+                    Offset = 1;
+                    ArrowOrder[4] = KeypadTLArrow;
+                }
+                else if (KeypadBLArrow.material.mainTexture == ArrowSwap)
+                {
+                    Offset = 2;
+                    ArrowOrder[4] = KeypadTRArrow;
+                }
+                else if (KeypadBLArrow.material.mainTexture == ArrowDiagonalTL)
+                {
+                    Offset = 1;
+                    ArrowOrder[4] = KeypadTLArrow;
+                }
+                else if (KeypadBLArrow.material.mainTexture == ArrowDiagonalTR)
+                {
+                    Offset = 2;
+                    ArrowOrder[4] = KeypadTRArrow;
+                }
+                else if (KeypadBLArrow.material.mainTexture == ArrowDiagonalBL)
+                {
+                    Offset = 3;
+                    ArrowOrder[4] = KeypadBLArrow;
+                }
+                else if (KeypadBLArrow.material.mainTexture == ArrowDiagonalBR)
+                {
+                    Offset = 4;
+                    ArrowOrder[4] = KeypadBRArrow;
+                }
+            }
+        }
+        else if (ArrowOrder[3] == KeypadBRArrow)
+        {
+            if (!Key4Fake)
+            {
+                if (KeypadBRArrow.material.mainTexture == ArrowLeft)
+                {
+                    Offset = 3;
+                    ArrowOrder[4] = KeypadBLArrow;
+                }
+                else if (KeypadBRArrow.material.mainTexture == ArrowReverse)
+                {
+                    Offset = 2;
+                    ArrowOrder[4] = KeypadTRArrow;
+                }
+                else if (KeypadBRArrow.material.mainTexture == ArrowClockwise)
+                {
+                    Offset = 3;
+                    ArrowOrder[4] = KeypadBLArrow;
+                }
+                else if (KeypadBRArrow.material.mainTexture == ArrowSwap)
+                {
+                    Offset = 1;
+                    ArrowOrder[4] = KeypadTLArrow;
+                }
+                else if (KeypadBRArrow.material.mainTexture == ArrowDiagonalTL)
+                {
+                    Offset = 1;
+                    ArrowOrder[4] = KeypadTLArrow;
+                }
+                else if (KeypadBRArrow.material.mainTexture == ArrowDiagonalTR)
+                {
+                    Offset = 2;
+                    ArrowOrder[4] = KeypadTRArrow;
+                }
+                else if (KeypadBRArrow.material.mainTexture == ArrowDiagonalBL)
+                {
+                    Offset = 3;
+                    ArrowOrder[4] = KeypadBLArrow;
+                }
+                else if (KeypadBRArrow.material.mainTexture == ArrowDiagonalBR)
+                {
+                    Offset = 4;
+                    ArrowOrder[4] = KeypadBRArrow;
+                }
+            }
+        }
+
+        if (ArrowOrder[4] == null)
+        {
+            if (ArrowOrder[3] == null)
+            {
+                if (ArrowOrder[2] == null)
+                {
+                    if (ArrowOrder[1] == null)
+                    {
+                        DesiredKey = ArrowOrder[0].name;
+                    }
+                    else
+                    {
+                        DesiredKey = ArrowOrder[1].name;
+                    }
                 }
                 else
                 {
-                    DesiredKey = ArrowOrder[1].name;
+                    DesiredKey = ArrowOrder[2].name;
                 }
             }
             else
             {
-                DesiredKey = ArrowOrder[2].name;
+                DesiredKey = ArrowOrder[3].name;
             }
         }
         else
         {
-            DesiredKey = ArrowOrder[3].name;
+            DesiredKey = ArrowOrder[4].name;
         }
         Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] The correct key is {1}", ModuleID, DesiredKey);
     }
@@ -1856,7 +2050,7 @@ public class MicroModuleScript : MonoBehaviour
         GetComponent<KMSelectable>().AddInteractionPunch();
         GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] Key pressed: Top left. Expected: {1}", ModuleID, DesiredKey);
-        if (Offset == 1)
+        if (DesiredKey == "ArrowTL")
         {
             Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] ... Which was correct. Module passed.", ModuleID);
             KeypadStatusLight.SetPass();
@@ -1889,7 +2083,7 @@ public class MicroModuleScript : MonoBehaviour
         GetComponent<KMSelectable>().AddInteractionPunch();
         GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] Key pressed: Top right. Expected: {1}", ModuleID, DesiredKey);
-        if (Offset == 2)
+        if (DesiredKey == "ArrowTR")
         {
             Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] ... Which was correct. Module passed.", ModuleID);
             KeypadStatusLight.SetPass();
@@ -1922,7 +2116,7 @@ public class MicroModuleScript : MonoBehaviour
         GetComponent<KMSelectable>().AddInteractionPunch();
         GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] Key pressed: Bottom left. Expected: {1}", ModuleID, DesiredKey);
-        if (Offset == 3)
+        if (DesiredKey == "ArrowBL")
         {
             Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] ... Which was correct. Module passed.", ModuleID);
             KeypadStatusLight.SetPass();
@@ -1955,7 +2149,7 @@ public class MicroModuleScript : MonoBehaviour
         GetComponent<KMSelectable>().AddInteractionPunch();
         GetComponent<KMAudio>().PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, transform);
         Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] Key pressed: Bottom right. Expected: {1}", ModuleID, DesiredKey);
-        if (Offset == 4)
+        if (DesiredKey == "ArrowBR")
         {
             Debug.LogFormat("[Micro-Modules #{0}] [Directional Keypads] ... Which was correct. Module passed.", ModuleID);
             KeypadStatusLight.SetPass();
@@ -2824,7 +3018,6 @@ public class MicroModuleScript : MonoBehaviour
 
     void PasswordCalculation()
     {
-
         if (Expression[2] == '+' || Expression[3] == '+')
         {
             if (Expression[6] == '+' || Expression[7] == '+' || Expression[8] == '+')
@@ -2954,6 +3147,7 @@ public class MicroModuleScript : MonoBehaviour
 
     IEnumerator PasswordSubtraction()
     {
+        Debug.LogFormat("[Micro-Modules #{0}] [Math Code] The solution is {1}", ModuleID, ExpressionSolution);
         while (true)
         {
             if (ExpressionSolution < 100)
@@ -2966,7 +3160,7 @@ public class MicroModuleScript : MonoBehaviour
             }
             else
             {
-                Debug.LogFormat("[Micro-Modules #{0}] [Math Code] The solution is {1}", ModuleID, ExpressionSolution);
+                Debug.LogFormat("[Micro-Modules #{0}] [Math Code] The code is {1}", ModuleID, ExpressionSolution);
                 SolutionPasswordDigit1 = int.Parse(ExpressionSolution.ToString()[0].ToString());
                 SolutionPasswordDigit2 = int.Parse(ExpressionSolution.ToString()[1].ToString());
                 SolutionPasswordDigit3 = int.Parse(ExpressionSolution.ToString()[2].ToString());

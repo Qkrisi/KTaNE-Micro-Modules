@@ -26312,6 +26312,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   Directions: []
   Key1Fake: 0
   Key2Fake: 0
@@ -26330,13 +26331,13 @@ MonoBehaviour:
   CharacterA: 0
   CharacterB: 0
   CharacterC: 0
-  ExpressionSolution: 0
   EnteredPasswordDigit1: 0
   EnteredPasswordDigit2: 0
   EnteredPasswordDigit3: 0
   SolutionPasswordDigit1: 0
   SolutionPasswordDigit2: 0
   SolutionPasswordDigit3: 0
+  ExpressionSolution: 0
   ScriptLine1: {fileID: 102661833811617518}
   ScriptLine3: {fileID: 102540244807625092}
   ScriptLine5: {fileID: 102651581001789982}
