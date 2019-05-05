@@ -3005,6 +3005,18 @@ public class MicroModuleScript : MonoBehaviour
         {
             CharacterB = CharacterB - 3;
         }
+        if (CharacterA == 0)
+        {
+            CharacterA = 1;
+        }
+        if (CharacterB == 0)
+        {
+            CharacterB = 1;
+        }
+        if (CharacterC == 0)
+        {
+            CharacterC = 1;
+        }
         CharacterC = CharacterC + BombInfo.GetBatteryCount();
         if (BombInfo.GetOnIndicators().Count() > 0)
         {
@@ -3520,9 +3532,9 @@ public class MicroModuleScript : MonoBehaviour
             ColorList.Add("White");
             ColorList.Add("Green");
             ColorList.Add("Red");
-            ColorList.Add("Blue");
-            ColorList.Add("Yellow");
             ColorList.Add("Black");
+            ColorList.Add("Yellow");
+            ColorList.Add("Blue");
         }
 
         int WireCol1Gen = Random.Range(0, 6), WireCol2Gen = Random.Range(0, 6), WireCol3Gen = Random.Range(0, 6), WireCol4Gen = Random.Range(0, 6), WireCol5Gen = Random.Range(0, 6), WireCol6Gen = Random.Range(0, 6);
