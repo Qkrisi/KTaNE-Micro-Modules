@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using KModkit;
@@ -4043,4 +4043,224 @@ public class MicroModuleScript : MonoBehaviour
         return false;
     }
     //End of Wires
+    public string TwitchHelpMessage = "Wires: Use '!{0} cut 6' to cut the 6th wire! Keypad: Use '!{0} press 3' to press the bottom-left button (1-tl, 2-tr, 3-bl, 4-br)! Morse: Use '!{0} send 1 2 3 4' to send code 1234! Math: Use '!{0} answer 1 2 3' to submit 123! General: Use '!{0} submit' to submit the module and use '!{0} reset' to reset the module!";
+    IEnumerator ProcessTwitchCommand(string command)
+    {
+        if(command.Equals("submit", StringComparison.InvariantCultureIgnoreCase)){      //submit module
+            yield return null;
+            yield return ModuleSubmit;
+        }
+        if(command.Equals("reset", StringComparison.InvariantCultureIgnoreCase)){  //reset module
+            yield return null;     
+            yield return ResetBtn;
+        }
+        if(command.Contains("cut")){       //wires
+            string commfinal=command.Replace("cut ", "");
+            string[] digitstring = commfinal.Split(' ');
+            int tried;
+            int index =1;
+            foreach(string digit in digitstring){
+                if(int.TryParse(digit, out tried)){
+                    if(index<=6){
+                        tried=int.Parse(digit);
+                        index+=1;
+                        if(tried==1){
+                            yield return Wire1Sel;
+                        }
+                        if(tried==2){
+                            yield return Wire2Sel;
+                        }
+                        if(tried==3){
+                            yield return Wire3Sel;
+                        }
+                        if(tried==4){
+                            yield return Wire4Sel;
+                        }
+                        if(tried==5){
+                            yield return Wire5Sel;
+                        }
+                        if(tried==6){
+                            yield return Wire6Sel;
+                        }
+                    }
+                    else{
+                        yield return null;
+                        yield return "sendtochaterror Too many digits!";
+                        yield break;
+                    }
+                }
+                else{
+                    yield return null;
+                    yield return "sendtochaterror Digit not valid.";
+                    yield break;
+                }
+            }
+        }
+        if(command.Contains("press")){  //keypad
+            string commfinal=command.Replace("press ", "");
+            int tried;
+            if(int.TryParse(commfinal, out tried)){
+                tried=int.Parse(commfinal);
+                if(tried==1){
+                    yield return null;
+                    yield return KeypadTL;
+                }
+                if(tried==2){
+                    yield return null;
+                    yield return KeypadTR;
+                }
+                if(tried==3){
+                    yield return null;
+                    yield return KeypadBL;
+                }
+                if(tried==4){
+                    yield return null;
+                    yield return KeypadBR;
+                }
+            }
+            else{
+                    yield return null;
+                    yield return "sendtochaterror Digit not valid.";
+                    yield break;
+                }
+        }
+        //morse
+        if(command.Equals("receive")){   
+            yield return null;  
+            yield return MorseKeyReceive;
+        }
+        if(command.Contains("send")){
+        
+        string commfinal=command.Replace("send ", "");
+            string[] digitstring = commfinal.Split(' ');
+            int tried;
+            int index =1;
+            foreach(string digit in digitstring){
+                if(int.TryParse(digit, out tried)){
+                    if(index<=4){
+                        tried=int.Parse(digit);
+                        index+=1;
+                        switch (tried){
+                            case 1:
+                                yield return null;
+                                yield return MorseKey1;
+                                yield return MorseKey1;
+                                break;
+                            case 2:
+                                yield return null;
+                                yield return MorseKey2;
+                                yield return MorseKey2;
+                                break;
+                            case 3:
+                                yield return null;
+                                yield return MorseKey3;
+                                yield return MorseKey3;
+                                break;
+                            case 4:
+                                yield return null;
+                                yield return MorseKey4;
+                                yield return MorseKey4;
+                                break;
+                            case 5:
+                                yield return null;
+                                yield return MorseKey5;
+                                yield return MorseKey5;
+                                break;
+                            case 6:
+                                yield return null;
+                                yield return MorseKey6;
+                                yield return MorseKey6;
+                                break;
+                            case 7:
+                                yield return null;
+                                yield return MorseKey7;
+                                yield return MorseKey7;
+                                break;
+                            case 8:
+                                yield return null;
+                                yield return MorseKey8;
+                                yield return MorseKey8;
+                                break;
+                            case 9:
+                                yield return null;
+                                yield return MorseKey9;
+                                yield return MorseKey9;
+                                break;
+                            case 0:
+                                yield return null;
+                                yield return MorseKey0;
+                                yield return MorseKey0;
+                                break;
+                        }
+
+                    }
+                    else{
+                        yield return null;
+                        yield return "sendtochaterror Too many digits!";
+                        yield break;
+                    }
+                }
+                else{
+                    yield return null;
+                    yield return "sendtochaterror Digit not valid.";
+                    yield break;
+                }
+                
+            }
+            yield return null;
+            yield return MorseKeySend;
+            yield return MorseKeySend;
+        }
+        if(command.Contains("answer")){
+            string commfinal=command.Replace("answer ", "");
+            string[] digitstring = commfinal.Split(' ');
+            int tried;
+            int index =1;
+            foreach(string digit in digitstring){
+                if(int.TryParse(digit, out tried)){
+                    if(index<=3){
+                        tried=int.Parse(digit);
+                        tried+=1;
+                        
+                        if(tried<=10){
+                            if(tried>=1){
+                                for(int i=0;i<tried;i++){
+                                    if(index==1){
+                                        yield return null;
+                                        yield return Password1Next;
+                                        yield return Password1Next;
+                                    }
+                                    if(index==2){
+                                        yield return null;
+                                        yield return Password2Next;
+                                        yield return Password2Next;
+                                    }
+                                    if(index==3){
+                                        yield return null;
+                                        yield return Password3Next;
+                                        yield return Password3Next;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        index+=1;
+                    }
+                    else{
+                        yield return null;
+                        yield return "sendtochaterror Too many digits!";
+                        yield break;
+                    }
+                }
+                else{
+                    yield return null;
+                    yield return "sendtochaterror Digit not valid.";
+                    yield break;
+                }
+            }
+            yield return null;
+            yield return PasswordSubmit;
+            yield return PasswordSubmit;        
+        }
+    }
 }
