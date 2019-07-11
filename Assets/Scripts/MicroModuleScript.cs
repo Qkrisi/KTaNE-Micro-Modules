@@ -4065,21 +4065,33 @@ public class MicroModuleScript : MonoBehaviour
                         tried=int.Parse(digit);
                         index+=1;
                         if(tried==1){
+                            yield return null;
+                            yield return Wire1Sel;
                             yield return Wire1Sel;
                         }
                         if(tried==2){
+                            yield return null;
+                            yield return Wire2Sel;
                             yield return Wire2Sel;
                         }
                         if(tried==3){
+                            yield return null;
+                            yield return Wire3Sel;
                             yield return Wire3Sel;
                         }
                         if(tried==4){
+                            yield return null;
+                            yield return Wire4Sel;
                             yield return Wire4Sel;
                         }
                         if(tried==5){
+                            yield return null;
+                            yield return Wire5Sel;
                             yield return Wire5Sel;
                         }
                         if(tried==6){
+                            yield return null;
+                            yield return Wire6Sel;
                             yield return Wire6Sel;
                         }
                     }
@@ -4104,17 +4116,21 @@ public class MicroModuleScript : MonoBehaviour
                 if(tried==1){
                     yield return null;
                     yield return KeypadTL;
+                    yield return KeypadTL;
                 }
                 if(tried==2){
                     yield return null;
+                    yield return KeypadTR;
                     yield return KeypadTR;
                 }
                 if(tried==3){
                     yield return null;
                     yield return KeypadBL;
+                    yield return KeypadBL;
                 }
                 if(tried==4){
                     yield return null;
+                    yield return KeypadBR;
                     yield return KeypadBR;
                 }
             }
@@ -4127,6 +4143,7 @@ public class MicroModuleScript : MonoBehaviour
         //morse
         if(command.Equals("receive")){   
             yield return null;  
+            yield return MorseKeyReceive;
             yield return MorseKeyReceive;
         }
         if(command.Contains("send")){
