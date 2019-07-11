@@ -4197,13 +4197,11 @@ public class MicroModuleScript : MonoBehaviour
                     else{
                         yield return null;
                         yield return "sendtochaterror Too many digits!";
-                        yield break;
                     }
                 }
                 else{
                     yield return null;
                     yield return "sendtochaterror Digit not valid.";
-                    yield break;
                 }
                 
             }
@@ -4249,13 +4247,11 @@ public class MicroModuleScript : MonoBehaviour
                     else{
                         yield return null;
                         yield return "sendtochaterror Too many digits!";
-                        yield break;
                     }
                 }
                 else{
                     yield return null;
                     yield return "sendtochaterror Digit not valid.";
-                    yield break;
                 }
             }
             yield return null;
