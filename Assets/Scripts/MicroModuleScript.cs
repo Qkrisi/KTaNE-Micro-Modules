@@ -4043,7 +4043,7 @@ public class MicroModuleScript : MonoBehaviour
         return false;
     }
     //End of Wires
-    public string TwitchHelpMessage = "Wires: Use '!{0} cut 6' to cut the 6th wire! Keypad: Use '!{0} press 3' to press the bottom-left button (1-tl, 2-tr, 3-bl, 4-br)! Morse: Use '!{0} send 1 2 3 4' to send code 1234! Math: Use '!{0} answer 1 2 3' to submit 123! General: Use '!{0} submit' to submit the module and use '!{0} reset' to reset the module!";
+    public string TwitchHelpMessage = "Wires: Use '!{0} cut 6' to cut the 6th wire! Keypad: Use '!{0} press 3' to press the bottom-left button (1-tl, 2-tr, 3-bl, 4-br)! Morse: Use '!{0} receive' to receive the message and use '!{0} send 1 2 3 4' to send code 1234! Math: Use '!{0} answer 1 2 3' to submit 123! General: Use '!{0} submit' to submit the module and use '!{0} reset' to reset the module!";
     IEnumerator ProcessTwitchCommand(string command)
     {
         if(command.Equals("submit", StringComparison.InvariantCultureIgnoreCase)){      //submit module
@@ -4197,13 +4197,11 @@ public class MicroModuleScript : MonoBehaviour
                     else{
                         yield return null;
                         yield return "sendtochaterror Too many digits!";
-                        yield break;
                     }
                 }
                 else{
                     yield return null;
                     yield return "sendtochaterror Digit not valid.";
-                    yield break;
                 }
                 
             }
@@ -4249,13 +4247,11 @@ public class MicroModuleScript : MonoBehaviour
                     else{
                         yield return null;
                         yield return "sendtochaterror Too many digits!";
-                        yield break;
                     }
                 }
                 else{
                     yield return null;
                     yield return "sendtochaterror Digit not valid.";
-                    yield break;
                 }
             }
             yield return null;
