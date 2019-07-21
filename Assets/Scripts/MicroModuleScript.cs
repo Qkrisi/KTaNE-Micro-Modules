@@ -3459,6 +3459,22 @@ public class MicroModuleScript : MonoBehaviour
                     GetComponent<KMBombModule>().HandleStrike();
                     StrikeCount++;
                     CurrentStrikesText.text = StrikeCount.ToString();
+
+                    PasswordChar1.color = new Color32(96, 255, 0, 255);
+                    PasswordCharacter1 = CharactersList1[10];
+                    EnteredPasswordDigit1 = 10;
+                    PasswordChar2.color = new Color32(96, 255, 0, 255);
+                    PasswordCharacter2 = CharactersList2[10];
+                    EnteredPasswordDigit2 = 10;
+                    PasswordChar3.color = new Color32(96, 255, 0, 255);
+                    PasswordCharacter3 = CharactersList3[10];
+                    EnteredPasswordDigit3 = 10;
+                    PasswordChar1.text = PasswordCharacter1.ToString();
+                    PasswordChar2.text = PasswordCharacter2.ToString();
+                    PasswordChar3.text = PasswordCharacter3.ToString();
+                    ActionNumber1=10;
+                    ActionNumber2=10;
+                    ActionNumber3=10;
                 }
             }
             else
@@ -3467,6 +3483,21 @@ public class MicroModuleScript : MonoBehaviour
                 GetComponent<KMBombModule>().HandleStrike();
                 StrikeCount++;
                 CurrentStrikesText.text = StrikeCount.ToString();
+                PasswordChar1.color = new Color32(96, 255, 0, 255);
+                PasswordCharacter1 = CharactersList1[10];
+                EnteredPasswordDigit1 = 10;
+                PasswordChar2.color = new Color32(96, 255, 0, 255);
+                PasswordCharacter2 = CharactersList2[10];
+                EnteredPasswordDigit2 = 10;
+                PasswordChar3.color = new Color32(96, 255, 0, 255);
+                PasswordCharacter3 = CharactersList3[10];
+                EnteredPasswordDigit3 = 10;
+                PasswordChar1.text = PasswordCharacter1.ToString();
+                PasswordChar2.text = PasswordCharacter2.ToString();
+                PasswordChar3.text = PasswordCharacter3.ToString();
+                ActionNumber1=10;
+                ActionNumber2=10;
+                ActionNumber3=10;
             }
         }
         else
@@ -3475,6 +3506,21 @@ public class MicroModuleScript : MonoBehaviour
             GetComponent<KMBombModule>().HandleStrike();
             StrikeCount++;
             CurrentStrikesText.text = StrikeCount.ToString();
+            PasswordChar1.color = new Color32(96, 255, 0, 255);
+            PasswordCharacter1 = CharactersList1[10];
+            EnteredPasswordDigit1 = 10;
+            PasswordChar2.color = new Color32(96, 255, 0, 255);
+            PasswordCharacter2 = CharactersList2[10];
+            EnteredPasswordDigit2 = 10;
+            PasswordChar3.color = new Color32(96, 255, 0, 255);
+            PasswordCharacter3 = CharactersList3[10];
+            EnteredPasswordDigit3 = 10;
+            PasswordChar1.text = PasswordCharacter1.ToString();
+            PasswordChar2.text = PasswordCharacter2.ToString();
+            PasswordChar3.text = PasswordCharacter3.ToString();
+            ActionNumber1=10;
+            ActionNumber2=10;
+            ActionNumber3=10;
         }
         return false;
     }
@@ -4043,7 +4089,7 @@ public class MicroModuleScript : MonoBehaviour
         return false;
     }
     //End of Wires
-    public string TwitchHelpMessage = "Wires: Use '!{0} cut 6' to cut the 6th wire! Keypad: Use '!{0} press 3' to press the bottom-left button (1-tl, 2-tr, 3-bl, 4-br)! Morse: Use '!{0} receive' to receive the message and use '!{0} send 1 2 3 4' to send code 1234! Math: Use '!{0} answer 1 2 3' to submit 123! General: Use '!{0} submit' to submit the module and use '!{0} reset' to reset the module!";
+    public string TwitchHelpMessage = "Wires: Use '!{0} cut 6' to cut the 6th wire! If you can't see the script wires's screen well, use '!{0} scriptinfo' to get the renderer's name written down in chat! Keypad: Use '!{0} press 3' to press the bottom-left button (1-tl, 2-tr, 3-bl, 4-br)! Morse: Use '!{0} receive' to receive the message and use '!{0} send 1 2 3 4' to send code 1234! Math: Use '!{0} answer 1 2 3' to submit 123! General: Use '!{0} submit' to submit the module and use '!{0} reset' to reset the module!";
     IEnumerator ProcessTwitchCommand(string command)
     {
         if(command.Equals("submit", StringComparison.InvariantCultureIgnoreCase)){      //submit module
@@ -4065,33 +4111,21 @@ public class MicroModuleScript : MonoBehaviour
                         tried=int.Parse(digit);
                         index+=1;
                         if(tried==1){
-                            yield return null;
-                            yield return Wire1Sel;
                             yield return Wire1Sel;
                         }
                         if(tried==2){
-                            yield return null;
-                            yield return Wire2Sel;
                             yield return Wire2Sel;
                         }
                         if(tried==3){
-                            yield return null;
-                            yield return Wire3Sel;
                             yield return Wire3Sel;
                         }
                         if(tried==4){
-                            yield return null;
-                            yield return Wire4Sel;
                             yield return Wire4Sel;
                         }
                         if(tried==5){
-                            yield return null;
-                            yield return Wire5Sel;
                             yield return Wire5Sel;
                         }
                         if(tried==6){
-                            yield return null;
-                            yield return Wire6Sel;
                             yield return Wire6Sel;
                         }
                     }
@@ -4116,21 +4150,17 @@ public class MicroModuleScript : MonoBehaviour
                 if(tried==1){
                     yield return null;
                     yield return KeypadTL;
-                    yield return KeypadTL;
                 }
                 if(tried==2){
                     yield return null;
-                    yield return KeypadTR;
                     yield return KeypadTR;
                 }
                 if(tried==3){
                     yield return null;
                     yield return KeypadBL;
-                    yield return KeypadBL;
                 }
                 if(tried==4){
                     yield return null;
-                    yield return KeypadBR;
                     yield return KeypadBR;
                 }
             }
@@ -4144,7 +4174,6 @@ public class MicroModuleScript : MonoBehaviour
         if(command.Equals("receive")){   
             yield return null;  
             yield return MorseKeyReceive;
-            yield return MorseKeyReceive;
         }
         if(command.Contains("send")){
         
@@ -4152,6 +4181,14 @@ public class MicroModuleScript : MonoBehaviour
             string[] digitstring = commfinal.Split(' ');
             int tried;
             int index =1;
+            if(int.TryParse(digitstring[0], out tried)){
+                tried=int.Parse(digitstring[0]);
+                if(tried/10>=1){
+                    yield return null;
+                    yield return "sendtochaterror Please separate the digits by spaces!";
+                    yield break;
+                }
+            }
             foreach(string digit in digitstring){
                 if(int.TryParse(digit, out tried)){
                     if(index<=4){
@@ -4231,7 +4268,16 @@ public class MicroModuleScript : MonoBehaviour
             string[] digitstring = commfinal.Split(' ');
             int tried;
             int index =1;
+            if(int.TryParse(digitstring[0], out tried)){
+                tried=int.Parse(digitstring[0]);
+                if(tried/10>=1){
+                    yield return null;
+                    yield return "sendtochaterror Please separate the digits by spaces!";
+                    yield break;
+                }
+            }
             foreach(string digit in digitstring){
+                
                 if(int.TryParse(digit, out tried)){
                     if(index<=3){
                         tried=int.Parse(digit);
@@ -4274,6 +4320,11 @@ public class MicroModuleScript : MonoBehaviour
             yield return null;
             yield return PasswordSubmit;
             yield return PasswordSubmit;        
+        }
+        if(command.Contains("scriptinfo")){
+            yield return null;
+            yield return "sendtochat The renderer's name: " + RendererName;
+            yield break;
         }
     }
 }
